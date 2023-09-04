@@ -9,4 +9,6 @@ public interface SubjectRepository {
     List<Subject> getAllSubjects();
 
 
+
+
 }
