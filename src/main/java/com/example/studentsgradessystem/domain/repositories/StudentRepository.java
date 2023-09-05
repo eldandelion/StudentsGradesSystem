@@ -1,12 +1,9 @@
 package com.example.studentsgradessystem.domain.repositories;
 
 import com.example.studentsgradessystem.domain.pojo.Student;
-import com.example.studentsgradessystem.domain.react.Observer;
-import com.example.studentsgradessystem.domain.react.Publisher;
+import com.example.studentsgradessystem.domain.events.StudentPublisher;
 
-import java.util.List;
-
-public interface StudentRepository extends Publisher {
+public interface StudentRepository extends StudentPublisher {
 
     void getAllStudents();
     void insertNewStudent(Student student);
