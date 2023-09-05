@@ -5,15 +5,9 @@ import com.example.studentsgradessystem.domain.pojo.Subject;
 public class GradeData {
 
 
-<<<<<<< HEAD
     private SubjectData subject;
     private long studentNumber;
     private long studentGrade;
-=======
-    SubjectData subject;
-    long studentNumber;
-    long studentGrade;
->>>>>>> 73ee17f (Added pojo classes to data layer)
 
     public GradeData(SubjectData subject, long studentNumber, long studentGrade) {
         this.subject = subject;
