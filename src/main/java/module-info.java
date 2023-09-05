@@ -1,6 +1,7 @@
 module com.example.studentsgradessystem {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.sql;
 
 
     opens com.example.studentsgradessystem to javafx.fxml;
