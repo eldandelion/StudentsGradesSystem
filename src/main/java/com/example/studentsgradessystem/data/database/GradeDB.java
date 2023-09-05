@@ -1,7 +1,7 @@
 package com.example.studentsgradessystem.data.database;
 
-import com.example.studentsgradessystem.data.pojo.GradeData;
-import com.example.studentsgradessystem.data.pojo.SubjectData;
+import com.example.studentsgradessystem.data.GradeData;
+import com.example.studentsgradessystem.data.SubjectData;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -103,18 +103,6 @@ public class GradeDB {
     }
 
 
-    public void deleteGradesByNumber(long studentNumber) {
-        try {
-            String query = "DELETE FROM grade WHERE studentNumber = ?";
-            PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setLong(1, studentNumber);
 
-            preparedStatement.executeUpdate();
-
-            preparedStatement.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
 }
 

@@ -1,12 +1,17 @@
 package com.example.studentsgradessystem.presentation;
 
-import com.example.studentsgradessystem.data.StudentRepositoryImpl;
-import com.example.studentsgradessystem.domain.pojo.Student;
-import com.example.studentsgradessystem.domain.repositories.StudentRepository;
+import com.example.studentsgradessystem.data.GradeData;
+import com.example.studentsgradessystem.data.SubjectData;
+import com.example.studentsgradessystem.data.database.GradeDB;
+import com.example.studentsgradessystem.data.database.StudentDB;
+import com.example.studentsgradessystem.data.database.SubjectDB;
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.List;
 
 public class HelloApplication extends Application {
     @Override
@@ -16,36 +21,17 @@ public class HelloApplication extends Application {
         stage.show();
     }
 
-
     public static void main(String[] args) {
 
-//        SubjectDB subjectDB = new SubjectDB();
+        SubjectDB subjectDB = new SubjectDB();
 //
 //        subjectDB.insertSubject(new SubjectData(32, "math"));
 //        List<SubjectData> data = subjectDB.getSubjects();
 
-//        SubjectData subjectData = new SubjectData(32, "math");
+        SubjectData subjectData = new SubjectData(32, "math");
 
-//        GradeDB gradeDB = new GradeDB(subjectDB);
+        GradeDB gradeDB = new GradeDB(subjectDB);
 
-        StudentRepository studentRepository = new StudentRepositoryImpl();
-        studentRepository.registerObserver(data -> {
-            for (Student student : data) {
-                System.out.println(student.getStudentName());
-            }
-        });
-        studentRepository.getAllStudents();
-
-//        List<Grade> grades = new ArrayList<>();
-//        grades.add(new Grade(new Subject(32, "math"), 21, 22));
-
-//        List<Student> list = studentRepository.getAllStudents();
-
-
-
-//        for (Student student : list) {
-//            System.out.println(student.getStudentName());
-//        }
 //        gradeDB.insertGrade(new GradeData(subjectData, 34243, 22));
 
 //        List<GradeData> data = gradeDB.getGradesByNumber(34243);
@@ -55,5 +41,4 @@ public class HelloApplication extends Application {
 //        }
         launch();
     }
-
 }
