@@ -33,7 +33,7 @@ public class StudentRepositoryImpl implements StudentRepository {
     @Override
     public void insertNewStudent(Student student) {
         if (studentDB.insertNewStudent(Mapper.entityToStudentData(student))) {
-            notifyObservers();
+            getAllStudents();
         }
     }
 
