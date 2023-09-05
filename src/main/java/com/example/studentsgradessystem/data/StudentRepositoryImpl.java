@@ -43,7 +43,7 @@ public class StudentRepositoryImpl implements StudentRepository {
     }
 
     @Override
-    public void notifyObservers() {
+    public void notifyObservers(List<Student> data) {
 
     }
 }
