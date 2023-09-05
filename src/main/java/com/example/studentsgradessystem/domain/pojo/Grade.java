@@ -6,9 +6,18 @@ package com.example.studentsgradessystem.domain.pojo;
 public class Grade {
 
 
-    Subject subject;
-    long studentNumber;
-    long studentGrade;
+    private Subject subject;
+    private long studentNumber;
+    private long studentGrade;
+
+    public Grade(Subject subject, long studentNumber, long studentGrade) {
+        this.subject = subject;
+        this.studentNumber = studentNumber;
+        this.studentGrade = studentGrade;
+    }
+
+    public Grade() {
+    }
 
     public Subject getSubject() {
         return subject;

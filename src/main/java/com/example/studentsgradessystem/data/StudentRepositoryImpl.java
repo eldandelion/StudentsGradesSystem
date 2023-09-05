@@ -1,5 +1,6 @@
 package com.example.studentsgradessystem.data;
 
+
 import com.example.studentsgradessystem.domain.repositories.StudentRepository;
 import com.example.studentsgradessystem.domain.pojo.Student;
 import com.example.studentsgradessystem.domain.react.Observer;
@@ -7,9 +8,13 @@ import com.example.studentsgradessystem.domain.react.Observer;
 import java.util.List;
 
 public class StudentRepositoryImpl implements StudentRepository {
+
+
+
     @Override
     public List<Student> getAllStudents() {
         return null;
+
     }
 
     @Override
