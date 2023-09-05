@@ -1,6 +1,4 @@
-package com.example.studentsgradessystem.data;
-
-import com.example.studentsgradessystem.domain.pojo.Grade;
+package com.example.studentsgradessystem.data.pojo;
 
 import java.util.List;
 

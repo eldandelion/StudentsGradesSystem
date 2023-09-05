@@ -1,4 +1,4 @@
-package com.example.studentsgradessystem.data;
+package com.example.studentsgradessystem.data.pojo;
 
 public class SubjectData {
 
