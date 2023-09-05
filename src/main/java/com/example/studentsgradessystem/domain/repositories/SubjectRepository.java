@@ -1,4 +1,4 @@
-package com.example.studentsgradessystem.domain;
+package com.example.studentsgradessystem.domain.repositories;
 
 import com.example.studentsgradessystem.domain.pojo.Subject;
 
