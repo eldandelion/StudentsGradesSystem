@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface StudentRepository extends Publisher {
 
-    List<Student> getAllStudents();
+    void getAllStudents();
     void insertNewStudent(Student student);
     void updateStudent(Student student);
     void deleteStudent(Student student);
