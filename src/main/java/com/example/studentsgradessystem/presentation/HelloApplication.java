@@ -1,10 +1,10 @@
 package com.example.studentsgradessystem.presentation;
 
-import com.example.studentsgradessystem.data.GradeData;
-import com.example.studentsgradessystem.data.SubjectData;
+
 import com.example.studentsgradessystem.data.database.GradeDB;
 import com.example.studentsgradessystem.data.database.StudentDB;
 import com.example.studentsgradessystem.data.database.SubjectDB;
+import com.example.studentsgradessystem.data.pojo.SubjectData;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -30,7 +30,6 @@ public class HelloApplication extends Application {
 
         SubjectData subjectData = new SubjectData(32, "math");
 
-        GradeDB gradeDB = new GradeDB(subjectDB);
 
 //        gradeDB.insertGrade(new GradeData(subjectData, 34243, 22));
 
