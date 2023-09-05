@@ -1,7 +1,7 @@
 package com.example.studentsgradessystem.data.database;
 
-import com.example.studentsgradessystem.data.GradeData;
-import com.example.studentsgradessystem.data.StudentData;
+import com.example.studentsgradessystem.data.pojo.GradeData;
+import com.example.studentsgradessystem.data.pojo.StudentData;
 
 import java.sql.*;
 import java.util.ArrayList;

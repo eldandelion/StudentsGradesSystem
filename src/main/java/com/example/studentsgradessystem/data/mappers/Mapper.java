@@ -1,8 +1,8 @@
 package com.example.studentsgradessystem.data.mappers;
 
-import com.example.studentsgradessystem.data.GradeData;
-import com.example.studentsgradessystem.data.StudentData;
-import com.example.studentsgradessystem.data.SubjectData;
+import com.example.studentsgradessystem.data.pojo.GradeData;
+import com.example.studentsgradessystem.data.pojo.StudentData;
+import com.example.studentsgradessystem.data.pojo.SubjectData;
 import com.example.studentsgradessystem.domain.pojo.Grade;
 import com.example.studentsgradessystem.domain.pojo.Student;
 import com.example.studentsgradessystem.domain.pojo.Subject;
