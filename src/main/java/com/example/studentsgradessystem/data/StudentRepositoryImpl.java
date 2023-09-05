@@ -12,8 +12,8 @@ public class StudentRepositoryImpl implements StudentRepository {
 
 
     @Override
-    public List<Student> getAllStudents() {
-        return null;
+    public void getAllStudents() {
+
 
     }
 
