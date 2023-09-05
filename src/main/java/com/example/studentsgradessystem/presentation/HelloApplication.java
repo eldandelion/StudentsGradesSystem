@@ -1,22 +1,12 @@
 package com.example.studentsgradessystem.presentation;
 
-import com.example.studentsgradessystem.data.GradeData;
 import com.example.studentsgradessystem.data.StudentRepositoryImpl;
-import com.example.studentsgradessystem.data.SubjectData;
-import com.example.studentsgradessystem.data.database.GradeDB;
-import com.example.studentsgradessystem.data.database.StudentDB;
-import com.example.studentsgradessystem.data.database.SubjectDB;
-import com.example.studentsgradessystem.domain.pojo.Grade;
 import com.example.studentsgradessystem.domain.pojo.Student;
-import com.example.studentsgradessystem.domain.pojo.Subject;
+import com.example.studentsgradessystem.domain.repositories.StudentRepository;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class HelloApplication extends Application {
     @Override
@@ -25,6 +15,7 @@ public class HelloApplication extends Application {
         stage.setTitle("Hello!");
         stage.show();
     }
+
 
     public static void main(String[] args) {
 
@@ -37,11 +28,17 @@ public class HelloApplication extends Application {
 
 //        GradeDB gradeDB = new GradeDB(subjectDB);
 
-        StudentRepositoryImpl studentRepository = new StudentRepositoryImpl();
-        List<Grade> grades = new ArrayList<>();
-        grades.add(new Grade(new Subject(32, "math"), 21, 22));
+        StudentRepository studentRepository = new StudentRepositoryImpl();
+        studentRepository.registerObserver(data -> {
+            for (Student student : data) {
+                System.out.println(student.getStudentName());
+            }
+        });
+        studentRepository.getAllStudents();
 
-        studentRepository.insertNewStudent(new Student(31, "Max", grades));
+//        List<Grade> grades = new ArrayList<>();
+//        grades.add(new Grade(new Subject(32, "math"), 21, 22));
+
 //        List<Student> list = studentRepository.getAllStudents();
 
 
@@ -58,4 +55,5 @@ public class HelloApplication extends Application {
 //        }
         launch();
     }
+
 }
