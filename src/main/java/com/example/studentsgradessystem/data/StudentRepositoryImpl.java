@@ -26,8 +26,8 @@ public class StudentRepositoryImpl implements StudentRepository {
 
     @Override
     public void getAllStudents() {
-        List<Student> list = Mapper.listStuToEntity(studentDB.getAllStudents());
-        notifyObservers(list);
+
+
     }
 
     @Override
