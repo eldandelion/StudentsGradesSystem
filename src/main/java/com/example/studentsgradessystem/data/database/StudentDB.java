@@ -114,5 +114,28 @@ public class StudentDB {
         return false;
     }
 
+    public boolean deleteStudent(StudentData studentData) {
+        try {
+            String query = "DELETE FROM student WHERE studentNumber = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setLong(1, studentData.getStudentId());
+
+            int rowsDeleted = preparedStatement.executeUpdate();
+
+            preparedStatement.close();
+
+            if (rowsDeleted > 0) {
+                // If student deletion is successful, also delete the grades for the student
+                gradeDB.deleteGradesByNumber(studentData.getStudentId());
+            }
+
+            return rowsDeleted > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
 
 }

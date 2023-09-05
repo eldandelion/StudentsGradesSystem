@@ -103,6 +103,18 @@ public class GradeDB {
     }
 
 
+    public void deleteGradesByNumber(long studentNumber) {
+        try {
+            String query = "DELETE FROM grade WHERE studentNumber = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setLong(1, studentNumber);
 
+            preparedStatement.executeUpdate();
+
+            preparedStatement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
 
