@@ -3,7 +3,7 @@ package com.example.studentsgradessystem.data;
 
 import com.example.studentsgradessystem.domain.repositories.StudentRepository;
 import com.example.studentsgradessystem.domain.pojo.Student;
-import com.example.studentsgradessystem.domain.react.Observer;
+import com.example.studentsgradessystem.domain.events.StudentObserver;
 
 import java.util.List;
 
@@ -33,12 +33,12 @@ public class StudentRepositoryImpl implements StudentRepository {
     }
 
     @Override
-    public void registerObserver(Observer observer) {
+    public void registerObserver(StudentObserver observer) {
 
     }
 
     @Override
-    public void unregisterObserver(Observer observer) {
+    public void unregisterObserver(StudentObserver observer) {
 
     }
 
