@@ -49,5 +49,25 @@ public class Mapper {
         return new StudentData(entity.getStudentId(), entity.getStudentName(), gradeList);
     }
 
+    public static List<Student> listStuToEntity(List<StudentData> list) {
+
+        List<Student> studentList = new ArrayList<>();
+
+        for (StudentData data : list) {
+            studentList.add(stuDataToEntity(data));
+        }
+        return studentList;
+    }
+
+    public static List<StudentData> listEntityToStudent(List<Student> list) {
+
+        List<StudentData> studentList = new ArrayList<>();
+
+        for (Student data : list) {
+            studentList.add(entityToStudentData(data));
+        }
+        return studentList;
+    }
+
 
 }
