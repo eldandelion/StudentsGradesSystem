@@ -6,10 +6,18 @@ import java.util.List;
 //Everything that should be inside the student SQL table
 public class Student {
 
-    long studentId;
-    String studentName;
-    List<Grade> grades;
+    private long studentId;
+    private String studentName;
+    private List<Grade> grades;
 
+    public Student(long studentId, String studentName, List<Grade> grades) {
+        this.studentId = studentId;
+        this.studentName = studentName;
+        this.grades = grades;
+    }
+
+    public Student() {
+    }
 
     public long getStudentId() {
         return studentId;
