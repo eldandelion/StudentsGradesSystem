@@ -1,6 +1,6 @@
 package com.example.studentsgradessystem.data;
 
-import com.example.studentsgradessystem.domain.StudentRepository;
+import com.example.studentsgradessystem.domain.repositories.StudentRepository;
 import com.example.studentsgradessystem.domain.pojo.Student;
 import com.example.studentsgradessystem.domain.react.Observer;
 
