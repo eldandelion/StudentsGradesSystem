@@ -1,16 +1,16 @@
 package com.example.studentsgradessystem.presentation;
 
 
-import com.example.studentsgradessystem.data.database.GradeDB;
-import com.example.studentsgradessystem.data.database.StudentDB;
+import com.example.studentsgradessystem.data.StudentRepositoryImpl;
 import com.example.studentsgradessystem.data.database.SubjectDB;
-import com.example.studentsgradessystem.data.pojo.SubjectData;
+import com.example.studentsgradessystem.domain.events.StudentObserver;
+import com.example.studentsgradessystem.domain.pojo.Student;
+import com.example.studentsgradessystem.domain.repositories.StudentRepository;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class HelloApplication extends Application {
@@ -24,20 +24,26 @@ public class HelloApplication extends Application {
     public static void main(String[] args) {
 
         SubjectDB subjectDB = new SubjectDB();
-//
-//        subjectDB.insertSubject(new SubjectData(32, "math"));
-//        List<SubjectData> data = subjectDB.getSubjects();
 
-        SubjectData subjectData = new SubjectData(32, "math");
+        List<Student> studentList = new ArrayList<>();
+
+        StudentRepository studentRepository = new StudentRepositoryImpl();
 
 
-//        gradeDB.insertGrade(new GradeData(subjectData, 34243, 22));
+        studentRepository.registerObserver(new StudentObserver() {
+            @Override
+            public void update(List<Student> data) {
+                studentList.addAll(data);
+                for (Student s : data) {
+                    System.out.println(s.getStudentName());
+                }
+            }
+        });
 
-//        List<GradeData> data = gradeDB.getGradesByNumber(34243);
-//        for (GradeData gradeData : data) {
-//            System.out.println(gradeData.getStudentGrade());
-//            System.out.println(gradeData.getSubject().getSubjectName());
-//        }
+        studentRepository.getAllStudents();
+        studentRepository.deleteStudent(studentList.get(0));
+
+
         launch();
     }
 }
