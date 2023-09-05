@@ -42,13 +42,13 @@ public class HelloApplication extends Application {
         grades.add(new Grade(new Subject(32, "math"), 21, 22));
 
         studentRepository.insertNewStudent(new Student(31, "Max", grades));
-        List<Student> list = studentRepository.getAllStudents();
+//        List<Student> list = studentRepository.getAllStudents();
 
 
 
-        for (Student student : list) {
-            System.out.println(student.getStudentName());
-        }
+//        for (Student student : list) {
+//            System.out.println(student.getStudentName());
+//        }
 //        gradeDB.insertGrade(new GradeData(subjectData, 34243, 22));
 
 //        List<GradeData> data = gradeDB.getGradesByNumber(34243);

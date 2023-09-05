@@ -24,8 +24,8 @@ public class StudentRepositoryImpl implements StudentRepository {
     }
 
     @Override
-    public List<Student> getAllStudents() {
-        return Mapper.listStuToEntity(studentDB.getAllStudents());
+    public void getAllStudents() {
+         Mapper.listStuToEntity(studentDB.getAllStudents());
     }
 
     @Override
