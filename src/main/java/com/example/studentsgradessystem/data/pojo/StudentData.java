@@ -1,15 +1,13 @@
-package com.example.studentsgradessystem.data;
-
-import com.example.studentsgradessystem.domain.pojo.Grade;
+package com.example.studentsgradessystem.data.pojo;
 
 import java.util.List;
 
 public class StudentData {
 
 
-    long studentId;
-    String studentName;
-    List<GradeData> grades;
+    private long studentId;
+    private String studentName;
+    private List<GradeData> grades;
 
     public StudentData(long studentId, String studentName, List<GradeData> grades) {
         this.studentId = studentId;

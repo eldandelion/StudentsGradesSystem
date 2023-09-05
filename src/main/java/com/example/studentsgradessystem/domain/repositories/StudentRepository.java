@@ -10,5 +10,4 @@ public interface StudentRepository extends StudentPublisher {
     void updateStudent(Student student);
     void deleteStudent(Student student);
 
-
 }

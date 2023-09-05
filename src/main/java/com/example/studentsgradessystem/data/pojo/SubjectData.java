@@ -1,9 +1,9 @@
-package com.example.studentsgradessystem.data;
+package com.example.studentsgradessystem.data.pojo;
 
 public class SubjectData {
 
-    long subjectId;
-    String subjectName;
+    private long subjectId;
+    private String subjectName;
 
     public SubjectData(long subjectId, String subjectName) {
         this.subjectId = subjectId;
