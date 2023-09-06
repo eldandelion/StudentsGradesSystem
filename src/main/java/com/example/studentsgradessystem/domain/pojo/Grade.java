@@ -5,7 +5,6 @@ package com.example.studentsgradessystem.domain.pojo;
 //It is stored in a separate SQL table
 public class Grade {
 
-
     private Subject subject;
     private long studentNumber;
     private long studentGrade;
