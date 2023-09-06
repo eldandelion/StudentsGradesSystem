@@ -5,14 +5,24 @@ package com.example.studentsgradessystem.domain.pojo;
 //So users can separately manage available subjects in the system
 public class Subject {
     private long subjectId;
+    private long teacherId;
     private String subjectName;
 
-    public Subject(long subjectId, String subjectName) {
+    public Subject(long subjectId, long teacherId, String subjectName) {
         this.subjectId = subjectId;
+        this.teacherId = teacherId;
         this.subjectName = subjectName;
     }
 
     public Subject() {
+    }
+
+    public long getTeacherId() {
+        return teacherId;
+    }
+
+    public void setTeacherId(long teacherId) {
+        this.teacherId = teacherId;
     }
 
     public long getSubjectId() {

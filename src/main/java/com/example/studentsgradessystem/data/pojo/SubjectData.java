@@ -3,11 +3,21 @@ package com.example.studentsgradessystem.data.pojo;
 public class SubjectData {
 
     private long subjectId;
+    private long teacherId;
     private String subjectName;
 
     public SubjectData(long subjectId, String subjectName) {
         this.subjectId = subjectId;
         this.subjectName = subjectName;
+    }
+
+
+    public long getTeacherId() {
+        return teacherId;
+    }
+
+    public void setTeacherId(long teacherId) {
+        this.teacherId = teacherId;
     }
 
     public long getSubjectId() {
