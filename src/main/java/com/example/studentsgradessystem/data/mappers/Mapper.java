@@ -18,7 +18,7 @@ public class Mapper {
     }
 
     public static SubjectData entityToSubData(Subject entity) {
-        return new SubjectData(entity.getSubjectId(), entity.getSubjectName());
+        return new SubjectData(entity.getSubjectId(), entity.getTeacherId(), entity.getSubjectName());
     }
 
     public static Grade gradeDataToEntity(GradeData data) {

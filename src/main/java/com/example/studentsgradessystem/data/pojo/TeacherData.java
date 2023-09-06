@@ -11,11 +11,13 @@ public class TeacherData {
     private String email;
     private String name;
     private String password;
-    private List<Subject> subjects;
-    private List<Student> students;
+    private List<SubjectData> subjects;
+    private List<StudentData> students;
 
+    public TeacherData() {
+    }
 
-    public TeacherData(long teacherId, String email, String name, String password, List<Subject> subjects, List<Student> students) {
+    public TeacherData(long teacherId, String email, String name, String password, List<SubjectData> subjects, List<StudentData> students) {
         this.teacherId = teacherId;
         this.email = email;
         this.name = name;
@@ -23,6 +25,7 @@ public class TeacherData {
         this.subjects = subjects;
         this.students = students;
     }
+
 
     public long getTeacherId() {
         return teacherId;
@@ -56,19 +59,19 @@ public class TeacherData {
         this.password = password;
     }
 
-    public List<Subject> getSubjects() {
+    public List<SubjectData> getSubjects() {
         return subjects;
     }
 
-    public void setSubjects(List<Subject> subjects) {
+    public void setSubjects(List<SubjectData> subjects) {
         this.subjects = subjects;
     }
 
-    public List<Student> getStudents() {
+    public List<StudentData> getStudents() {
         return students;
     }
 
-    public void setStudents(List<Student> students) {
+    public void setStudents(List<StudentData> students) {
         this.students = students;
     }
 }
