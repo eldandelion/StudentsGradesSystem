@@ -6,11 +6,11 @@ public class SubjectData {
     private long teacherId;
     private String subjectName;
 
-    public SubjectData(long subjectId, String subjectName) {
+    public SubjectData(long subjectId, long teacherId, String subjectName) {
         this.subjectId = subjectId;
+        this.teacherId = teacherId;
         this.subjectName = subjectName;
     }
-
 
     public long getTeacherId() {
         return teacherId;
