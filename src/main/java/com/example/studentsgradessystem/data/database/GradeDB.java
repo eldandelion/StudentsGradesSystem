@@ -10,9 +10,8 @@ import java.util.List;
 public class GradeDB {
 
     private final String projectDir = System.getProperty("user.dir");
-    private Connection connection = null;
-
-    private SubjectDB subjectDB = null;
+    private final Connection connection;
+    private final SubjectDB subjectDB;
 
     public GradeDB(SubjectDB subjectDB) {
 

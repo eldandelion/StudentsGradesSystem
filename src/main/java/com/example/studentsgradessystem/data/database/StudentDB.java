@@ -11,9 +11,9 @@ import java.util.List;
 public class StudentDB {
 
     private final String projectDir = System.getProperty("user.dir");
-    private Connection connection = null;
+    private final Connection connection;
 
-    GradeDB gradeDB = null;
+    private final GradeDB gradeDB;
 
     public StudentDB(GradeDB gradeDB) {
 
