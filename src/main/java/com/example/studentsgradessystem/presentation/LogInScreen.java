@@ -5,6 +5,8 @@ import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 import javafx.stage.Stage;
 
 public class LogInScreen extends Application {
@@ -47,12 +49,20 @@ public class LogInScreen extends Application {
         Button loginButton = new Button("登录");
         Button registerButton = new Button("注册账号");
 
+        HBox buttonsBox = new HBox(loginButton, registerButton);
+        buttonsBox.setSpacing(10);
+
+        HBox.setHgrow(loginButton, Priority.ALWAYS);
+        HBox.setHgrow(registerButton, Priority.ALWAYS);
+        loginButton.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+        registerButton.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+
         grid.add(usernameLabel, 0, 0);
         grid.add(usernameField, 1, 0);
         grid.add(passwordLabel, 0, 1);
         grid.add(passwordField, 1, 1);
-        grid.add(loginButton, 1, 2);
-        grid.add(registerButton, 1, 3);
+        grid.add(buttonsBox, 1, 2);
+//        grid.add(registerButton, 1, 3);
 
         loginButton.setOnAction(e -> {
             String username = usernameField.getText();
