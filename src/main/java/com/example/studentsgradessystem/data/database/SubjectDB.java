@@ -10,9 +10,8 @@ import java.util.List;
 public class SubjectDB {
 
     private final String projectDir = System.getProperty("user.dir");
-    private Connection connection = null;
-
-    private Statement statement = null;
+    private final Connection connection;
+    private final Statement statement;
 
     public SubjectDB() {
         try {
