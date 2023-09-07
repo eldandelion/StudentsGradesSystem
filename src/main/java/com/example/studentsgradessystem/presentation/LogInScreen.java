@@ -112,7 +112,11 @@ public class LogInScreen extends Application {
 
             @Override
             public void update(Flags flag) {
-
+                if (flag.equals(Flags.LogInSuccess)) {
+                    //TODO notify user on login success
+                } else if (flag.equals(Flags.LogInFail)){
+                    //TODO notify user on fail
+                }
             }
         });
         logInViewModel.getTeacherByCredentials(username, password);
@@ -132,6 +136,7 @@ public class LogInScreen extends Application {
 //        mainApp.start(mainStage);
 //    }
 
+    //TODO pattern for email validation
     private static final String EMAIL_REGEX = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
     private static final Pattern EMAIL_PATTERN = Pattern.compile(EMAIL_REGEX);
 
@@ -169,12 +174,15 @@ public class LogInScreen extends Application {
 
         registrationDialog.setResultConverter(dialogButton -> {
             if (dialogButton == registerButtonType) {
+
+                //TODO set rules for username, password and email, show alert message in case something is not correct
                 String newUsername = newUserField.getText().trim();
                 String newPassword = newPasswordField.getText().trim();
                 String newEmail = newUserEmail.getText().trim();
 
                 isValidEmail(newEmail);
 
+                //TODO unregister observer when the dialogue closes
                 logInViewModel.registerObserver(new TeacherObserver() {
                     @Override
                     public void update(List<Teacher> data) {
@@ -190,8 +198,10 @@ public class LogInScreen extends Application {
                     @Override
                     public void update(Flags flag) {
                         if (flag.equals(Flags.RegisterSuccess)) {
+                            //TODO show alert message
                             System.out.println("Registered");
-                        } else {
+                        } else if (flag.equals(Flags.RegisterFail)){
+                            //TODO show alert message
 
                         }
                     }
