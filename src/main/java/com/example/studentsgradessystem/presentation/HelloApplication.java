@@ -2,19 +2,13 @@ package com.example.studentsgradessystem.presentation;
 
 
 import com.example.studentsgradessystem.data.StudentRepositoryImpl;
-import com.example.studentsgradessystem.data.database.SubjectDB;
+import com.example.studentsgradessystem.data.database.Database;
 import com.example.studentsgradessystem.domain.events.StudentObserver;
 import com.example.studentsgradessystem.domain.pojo.Grade;
 import com.example.studentsgradessystem.domain.pojo.Student;
 import com.example.studentsgradessystem.domain.pojo.Subject;
 import com.example.studentsgradessystem.domain.repositories.StudentRepository;
 import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.scene.control.TableCell;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -33,12 +27,19 @@ public class HelloApplication extends Application {
 
     public static void main(String[] args) {
 
-        SubjectDB subjectDB = new SubjectDB();
+
+        Database database = new Database();
+
 
         List<Student> studentList = new ArrayList<>();
 
         StudentRepository studentRepository = new StudentRepositoryImpl();
 
+        List<Grade> list = new ArrayList<>();
+        Subject subject = new Subject(1232, 1, "Math");
+
+        list.add(new Grade(subject, 14, 23));
+        studentRepository.insertNewStudent(new Student(14, "Daniel", list));
 
         studentRepository.registerObserver(new StudentObserver() {
             @Override
