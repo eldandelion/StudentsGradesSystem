@@ -1,9 +1,7 @@
 package com.example.studentsgradessystem.data;
 
 
-import com.example.studentsgradessystem.data.database.GradeDB;
-import com.example.studentsgradessystem.data.database.StudentDB;
-import com.example.studentsgradessystem.data.database.SubjectDB;
+import com.example.studentsgradessystem.data.database.Database;
 import com.example.studentsgradessystem.data.mappers.Mapper;
 import com.example.studentsgradessystem.domain.events.StudentObserver;
 import com.example.studentsgradessystem.domain.repositories.StudentRepository;
@@ -15,38 +13,34 @@ import java.util.List;
 public class StudentRepositoryImpl implements StudentRepository {
 
     List<StudentObserver> observers = new ArrayList<>();
-    private StudentDB studentDB;
-    private GradeDB gradeDB;
-    private SubjectDB subjectDB;
+    private Database database;
     public StudentRepositoryImpl() {
-        subjectDB = new SubjectDB();
-        gradeDB = new GradeDB(subjectDB);
-        studentDB = new StudentDB(gradeDB);
+        database = new Database();
     }
 
     @Override
     public void getAllStudents() {
-        List<Student> list = Mapper.listStuToEntity(studentDB.getAllStudents());
+        List<Student> list = Mapper.listStuToEntity(database.getAllStudents());
         notifyObservers(list);
     }
 
     @Override
     public void insertNewStudent(Student student) {
-        if (studentDB.insertNewStudent(Mapper.entityToStudentData(student))) {
+        if (database.insertNewStudent(Mapper.entityToStudentData(student))) {
             getAllStudents();
         }
     }
 
     @Override
     public void updateStudent(Student student) {
-        if (studentDB.updateStudent(Mapper.entityToStudentData(student))) {
+        if (database.updateStudent(Mapper.entityToStudentData(student))) {
             getAllStudents();
         }
     }
 
     @Override
     public void deleteStudent(Student student) {
-        if (studentDB.deleteStudent(Mapper.entityToStudentData(student))) {
+        if (database.deleteStudent(Mapper.entityToStudentData(student))) {
             getAllStudents();
         }
     }
