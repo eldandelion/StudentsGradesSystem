@@ -1,7 +1,6 @@
 package com.example.studentsgradessystem.domain.repositories;
 
 import com.example.studentsgradessystem.domain.events.TeacherPublisher;
-import com.example.studentsgradessystem.domain.pojo.Student;
 import com.example.studentsgradessystem.domain.pojo.Teacher;
 
 public interface TeacherRepository extends TeacherPublisher {
@@ -10,7 +9,7 @@ public interface TeacherRepository extends TeacherPublisher {
     void getTeacherByCredentials(String email, String password);
     void insertNewTeacher(Teacher teacher);
     void updateTeacher(Teacher teacher);
-    void deleteStudent(Teacher teacher);
+    void deleteTeacher(Teacher teacher);
 
 
 }
