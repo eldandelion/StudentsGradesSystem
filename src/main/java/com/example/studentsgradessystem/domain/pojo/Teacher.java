@@ -1,15 +1,16 @@
 package com.example.studentsgradessystem.domain.pojo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Teacher {
 
-    private long teacherId;
+    private long teacherId = 0;
     private String email;
     private String name;
     private String password;
-    private List<Subject> subjects;
-    private List<Student> students;
+    private List<Subject> subjects = new ArrayList<>();
+    private List<Student> students = new ArrayList<>();
 
     public Teacher(long teacherId, String email, String name, String password, List<Subject> subjects, List<Student> students) {
         this.teacherId = teacherId;
@@ -18,6 +19,12 @@ public class Teacher {
         this.password = password;
         this.subjects = subjects;
         this.students = students;
+    }
+
+    public Teacher(String email, String name, String password) {
+        this.email = email;
+        this.name = name;
+        this.password = password;
     }
 
     public Teacher() {
