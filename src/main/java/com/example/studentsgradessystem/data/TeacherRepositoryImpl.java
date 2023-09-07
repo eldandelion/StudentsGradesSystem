@@ -59,7 +59,13 @@ public class TeacherRepositoryImpl implements TeacherRepository {
 
     @Override
     public void getTeacherByCredentials(String email, String password) {
-        notifyObservers(Mapper.teacherDataToEntity(database.getTeacherByCredentials(email, password)));
+        TeacherData teacher = database.getTeacherByCredentials(email, password);
+        if (teacher != null) {
+            notifyObservers(Flags.LogInSuccess);
+            notifyObservers(Mapper.teacherDataToEntity(teacher));
+        } else {
+            notifyObservers(Flags.LogInFail);
+        }
     }
 
     @Override
