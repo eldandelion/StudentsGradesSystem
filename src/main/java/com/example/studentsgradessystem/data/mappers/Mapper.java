@@ -3,9 +3,11 @@ package com.example.studentsgradessystem.data.mappers;
 import com.example.studentsgradessystem.data.pojo.GradeData;
 import com.example.studentsgradessystem.data.pojo.StudentData;
 import com.example.studentsgradessystem.data.pojo.SubjectData;
+import com.example.studentsgradessystem.data.pojo.TeacherData;
 import com.example.studentsgradessystem.domain.pojo.Grade;
 import com.example.studentsgradessystem.domain.pojo.Student;
 import com.example.studentsgradessystem.domain.pojo.Subject;
+import com.example.studentsgradessystem.domain.pojo.Teacher;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,11 +16,23 @@ public class Mapper {
 
 
     public static Subject subDataToEntity(SubjectData data) {
-        return new Subject(data.getSubjectId(), data.getTeacherId(),  data.getSubjectName());
+        return new Subject(data.getSubjectId(), data.getTeacherId(), data.getSubjectName());
     }
 
     public static SubjectData entityToSubData(Subject entity) {
         return new SubjectData(entity.getSubjectId(), entity.getTeacherId(), entity.getSubjectName());
+    }
+
+    public static List<Subject> subDataToEntityList(List<SubjectData> list) {
+        List<Subject> subjectList = new ArrayList<>();
+        for (SubjectData s : list) subjectList.add(subDataToEntity(s));
+        return subjectList;
+    }
+
+    public static List<SubjectData> subEntityToDataList(List<Subject> list) {
+        List<SubjectData> subjectList = new ArrayList<>();
+        for (Subject s : list) subjectList.add(entityToSubData(s));
+        return subjectList;
     }
 
     public static Grade gradeDataToEntity(GradeData data) {
@@ -39,7 +53,7 @@ public class Mapper {
         return new Student(data.getStudentId(), data.getStudentName(), gradeList);
     }
 
-    public static StudentData entityToStudentData(Student entity){
+    public static StudentData entityToStudentData(Student entity) {
         List<GradeData> gradeList = new ArrayList<>();
 
         for (Grade grade : entity.getGrades()) {
@@ -67,6 +81,31 @@ public class Mapper {
             studentList.add(entityToStudentData(data));
         }
         return studentList;
+    }
+
+    public static Teacher teacherDataToEntity(TeacherData teacherData) {
+        List<Student> studentList = listStuToEntity(teacherData.getStudents());
+        List<Subject> subjectList = subDataToEntityList(teacherData.getSubjects());
+
+        return new Teacher(teacherData.getTeacherId(), teacherData.getEmail(), teacherData.getName(), teacherData.getPassword(), subjectList, studentList);
+    }
+
+    public static TeacherData teacherEntityToData(Teacher teacher) {
+        List<StudentData> studentList = listEntityToStudent(teacher.getStudents());
+        List<SubjectData> subjectList = subEntityToDataList(teacher.getSubjects());
+
+        return new TeacherData(teacher.getTeacherId(), teacher.getEmail(), teacher.getName(), teacher.getPassword(), subjectList, studentList);
+    }
+    public static List<Teacher> teacherDataToEntityList(List<TeacherData> list) {
+        List<Teacher> teacherList = new ArrayList<>();
+        for (TeacherData t : list) teacherList.add(teacherDataToEntity(t));
+        return teacherList;
+    }
+
+    public static List<TeacherData> teacherEntityToDataList(List<Teacher> list) {
+        List<TeacherData> teacherList = new ArrayList<>();
+        for (Teacher t : list) teacherList.add(teacherEntityToData(t));
+        return teacherList;
     }
 
 
